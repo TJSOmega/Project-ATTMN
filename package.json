@@ -1,16 +1,44 @@
 {
-  "name": "newTest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "voice.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "ATTMN",
+  "displayName": "ATTMN",
+  "description": "Voice Commanded Snippets",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.55.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:ATTMN.helloWorld"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ATTMN.helloWorld",
+        "title": "ATTMN"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.55.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
   "dependencies": {
-    "@google-cloud/speech": "^4.4.0",
+    "@google-cloud/speech": "^4.5.0",
     "node-record-lpcm16": "^1.0.1"
   }
 }
