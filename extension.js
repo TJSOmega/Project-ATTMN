@@ -48,6 +48,13 @@ function activate(context) {
         interimResults: false, // If you want interim results, set this to true
       };
 
+      //function that takes in the trancsript
+
+      function voiceCommand(value) {
+        command = value;
+        console.log(value);
+      }
+
       // Create a recognize stream
       const recognizeStream = client
         .streamingRecognize(request)
@@ -55,9 +62,7 @@ function activate(context) {
         .on("data", (data) =>
           process.stdout.write(
             data.results[0] && data.results[0].alternatives[0]
-              ? console.log(
-                  `Transcription: ${data.results[0].alternatives[0].transcript}\n`
-                )
+              ? voiceCommand(data.results[0].alternatives[0].transcript)
               : "\n\nReached transcription time limit, press Ctrl+C\n"
           )
         );
