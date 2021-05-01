@@ -33,8 +33,6 @@ function activate(context) {
       };
       const client = new speech.SpeechClient(config);
 
-      let command = null;
-
       const encoding = "LINEAR16";
       const sampleRateHertz = 16000;
       const languageCode = "en-US";
@@ -50,15 +48,30 @@ function activate(context) {
 
       //function that takes in the trancsript
 
-      function voiceCommand(value) {
-        command = value;
+      async function voiceCommand(value) {
         console.log(value);
-        vscode.commands.executeCommand("editorsScroll",{
-          to:"down",
-          by:"halfpage",
-          revealcursor:true,
-        })
-        console.log("after editorScroll")
+
+        if (value === "scroll down") {
+          vscode.commands.executeCommand("editorScroll", {
+            to: "down",
+            by: "line",
+            value: 50,
+            revealCursor: true,
+          });
+          console.log("After editorScroll");
+        }
+        if (value === "move tab") {
+          await vscode.commands.executeCommand("moveActiveEditor", {
+            by: "tab",
+          });
+        }
+        if (value === "insert function") {
+          const editor = vscode.window.activeTextEditor;
+          editor.insertSnippet(
+            new vscode.SnippetString("console.log('$1')", "$2")
+            // new vscode.Position(123, 0)
+          );
+        }
       }
 
       // Create a recognize stream
@@ -81,7 +94,7 @@ function activate(context) {
           threshold: 0,
           // Other options, see https://www.npmjs.com/package/node-record-lpcm16#options
           verbose: false,
-          recordProgram: "rec", // Try also "arecord" or "sox"
+          recordProgram: "sox", // Try also "arecord" or "sox"
           silence: "10.0",
         })
         .stream()
@@ -89,8 +102,6 @@ function activate(context) {
         .pipe(recognizeStream);
 
       console.log("Listening, press Ctrl+C to stop.");
-
-      vscode.window.showInformationMessage(command);
 
       //--------------------------------------------------------------------------------------------------------------------------
     }
