@@ -22,3 +22,6 @@
    - Main branch (final)  Dev branch (compiled work that has been reviewed)  Individual branches for specific features
    - Pull requests will be walked through and explained by the developer and reviewed by two other members before merges. Afterwards everyone will pull the dev branch back down
    - We will try to establish clear lanes of work and if we know they will intersect we will try to keep an open dialogue on what might be affected while we code.
+
+### Project Management Tool
+- [PM Tool](https://anttm.atlassian.net/jira/software/projects/AVA/boards/1#)

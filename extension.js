@@ -27,9 +27,9 @@ function activate(context) {
       vscode.window.showInformationMessage("Hello World from ATTMN!");
       //--------------------------------------------------------------------------------------------------------------------------
       const config = {
-        projectId: "coral-atom-312202",
+        projectId: "fifth-medley-312204",
         keyFilename:
-          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
+        "C:\\Users\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
       };
       const client = new speech.SpeechClient(config);
 
@@ -53,6 +53,12 @@ function activate(context) {
       function voiceCommand(value) {
         command = value;
         console.log(value);
+        vscode.commands.executeCommand("editorsScroll",{
+          to:"down",
+          by:"halfpage",
+          revealcursor:true,
+        })
+        console.log("after editorScroll")
       }
 
       // Create a recognize stream
