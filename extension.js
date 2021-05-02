@@ -29,7 +29,7 @@ function activate(context) {
       const config = {
         projectId: "fifth-medley-312204",
         keyFilename:
-        "C:\\Users\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
+          "C:\sers\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
       };
       const client = new speech.SpeechClient(config);
 
@@ -111,7 +111,7 @@ function activate(context) {
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
   activate,
