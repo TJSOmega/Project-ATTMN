@@ -7,55 +7,55 @@
    - As a teaching developer I would like to use a voice command VS Code extension to efficiently get through lectures and demos, allowing me more time to talk through concepts and implementation.
    - As a VS Code user I would like more accessibility driven voice command extensions.
 - **ACCEPTANCE TASKS:**
-    -  Users of this extension will be able to use their voice to generate built in code snippets.
+    -  Users of this extension will be able to use their voice to generate built in code snippets and boiler plate outlines.
 - **FEATURE TASKS:**
     -  Ensures that the keyword users speak generates the intended code snippet.
 
 
-## Software Requirements 
+## Software Requirements
+VISION
+- Create a voice command VS Code extension that eliminates repetive typing and generates designated code snippets based on voiced key words.
+- VS Code has many features, and this project is a step in the direction to make the editor accessible to more people.
+- To create a more productive work environment for programmers. This extension will increase productivity by decreasing typing time.
 
-What is the vision of this product?
-- Visual Studio Code has many features to help make the editor accessible to all .
+PAIN POINTS WE ARE SOLVING
+- This project addresses the problem of writing necessary, but repetitive, code snippets.
+- This project also scratches the surface of creating code editor that is not reliant on the use of a traditional keyboard.  
 
-- To make it much more convenient and productive for programmers and will increase their productivity by decreasing programming time.
-
-- Visual Studio Code extension that uses voice command to make writing code easier .
-
-What pain point does this project solve?
-
-- Productivity Pain Points.
-    - To improve efficiently.
-- Accessible Pain Points.
-    - it will be easy to acess it to any one .
-
-Why should we care about your product?
-
+WHY YOU SHOULD CARE
+- "Typing out a boiler plate for an Express server is only fun the first 50 times". - Arthur
+- "I'm tired of typing counsole.log instead of console.log" - Taylor
 
 ## Scope (In/Out)
 #### IN - What will your product do.
-  - The Visual Studio Code extension features will provide information to the users about accessibility driven voice command extensions.
+- This VS Code Extension will generate certain code snippets and function signatures.
 
 #### OUT - What will your product not do
+- This VS Code Extension will not generate logic. 
 
 ------------------
 
 ### What will your MVP functionality be?
-
-   -  mvp here 
+- Create VS Code extension
+- Incorporate speech recorder dependency
+- Generate 3 code snippets based on voice activiation
 
 ### Stretch 
-   - stretch goals here 
+- Use voice command to generate different types of functions 
+- Use voice command to generate boiler plate for an Express server
 
 ### Functional Requirements 
-
-   - 
-   - 
-   - 
+- Users are able to use voice commands to generate certain code snippets and function signatures in VS Code. 
 
 ### Data Flow  
- - 
+- Open VS Code 
+- Access ATTMN extension
+- Run extension
+- Use voice generate lines of code
 
 ### Non-Functional
+- Testing 
+- 
 - 
   
   
