@@ -29,12 +29,9 @@ function activate(context) {
       vscode.window.showInformationMessage("Hello World from ATTMN!");
       //--------------------------------------------------------------------------------------------------------------------------
       const config = {
-        projectId: "coral-atom-312202",
+        projectId: "fifth-medley-312204",,
         keyFilename:
-
-         
-
-          "C:\sers\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
+       "C:\\Users\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
 
       };
       const client = new speech.SpeechClient(config);
