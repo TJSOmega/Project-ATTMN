@@ -4,6 +4,8 @@ const vscode = require("vscode");
 const recorder = require("node-record-lpcm16");
 const speech = require("@google-cloud/speech");
 
+const { breakDown } = require("./src/handler.js");
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -27,9 +29,11 @@ function activate(context) {
       vscode.window.showInformationMessage("Hello World from ATTMN!");
       //--------------------------------------------------------------------------------------------------------------------------
       const config = {
+
         projectId: "crypto-canyon-3123`01",
         keyFilename:
         "/Users/taylorthornton/Desktop/GoogleKeys/crypto-canyon-312301-06fb9859f4e8.json",
+        
       };
       const client = new speech.SpeechClient(config);
 
@@ -48,31 +52,31 @@ function activate(context) {
 
       //function that takes in the trancsript
 
-      async function voiceCommand(value) {
-        console.log(value);
+      // async function voiceCommand(value) {
+      //   console.log(value);
 
-        if (value === "scroll down") {
-          vscode.commands.executeCommand("editorScroll", {
-            to: "down",
-            by: "line",
-            value: 50,
-            revealCursor: true,
-          });
-          console.log("After editorScroll");
-        }
-        if (value === "move tab") {
-          await vscode.commands.executeCommand("moveActiveEditor", {
-            by: "tab",
-          });
-        }
-        if (value === "insert function") {
-          const editor = vscode.window.activeTextEditor;
-          editor.insertSnippet(
-            new vscode.SnippetString("console.log('$1')", "$2")
-            // new vscode.Position(123, 0)
-          );
-        }
-      }
+      //   if (value === "scroll down") {
+      //     vscode.commands.executeCommand("editorScroll", {
+      //       to: "down",
+      //       by: "line",
+      //       value: 50,
+      //       revealCursor: true,
+      //     });
+      //     console.log("After editorScroll");
+      //   }
+      //   if (value === "move tab") {
+      //     await vscode.commands.executeCommand("moveActiveEditor", {
+      //       by: "tab",
+      //     });
+      //   }
+      //   if (value === "insert function") {
+      //     const editor = vscode.window.activeTextEditor;
+      //     editor.insertSnippet(
+      //       new vscode.SnippetString("console.log('$1')", "$2")
+      //       // new vscode.Position(123, 0)
+      //     );
+      //   }
+      // }
 
       // Create a recognize stream
       const recognizeStream = client
@@ -81,7 +85,7 @@ function activate(context) {
         .on("data", (data) =>
           process.stdout.write(
             data.results[0] && data.results[0].alternatives[0]
-              ? voiceCommand(data.results[0].alternatives[0].transcript)
+              ? breakDown(data.results[0].alternatives[0].transcript) // Calls the BREAKDOWN fucntion on handler.js
               : "\n\nReached transcription time limit, press Ctrl+C\n"
           )
         );
@@ -111,7 +115,7 @@ function activate(context) {
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
   activate,
