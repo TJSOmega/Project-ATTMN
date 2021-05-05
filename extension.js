@@ -64,13 +64,10 @@ function activate(context) {
       //--------------------------------------------------------------------------------------------------------------------------
 
       const config = {
-
-        projectId: "fifth-medley-312204",,
+        projectId: "fifth-medley-312204",
         keyFilename:
-       "C:\\Users\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
+        "C:\\Users\\12064\\Desktop\\fifth-medley-312204-3de415f7b035.json",
 
-
-       
       };
       const client = new speech.SpeechClient(config);
 

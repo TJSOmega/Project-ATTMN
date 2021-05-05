@@ -1,61 +1,41 @@
 # ATTMN README
 
-This is the README for your extension "ATTMN". After writing up a brief description, we recommend including the following sections.
 
+This is the README for your extension "ATTMN". 
+-  This project addresses the problem of writing necessary, but repetitive, code snippets.
 ## Features
-
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Create a voice command VS Code extension that eliminates repetive typing and generates designated code snippets based on voiced key words.
+- VS Code has many features, and this project is a step in the direction to make the editor accessible to more people.
+- To create a more productive work environment for programmers. This extension will increase productivity by decreasing typing time.
 
 ## Requirements
+  ### node-record-lpcm-16
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+-  Records a 16-bit signed-integer linear pulse modulation code WAV audio file.
 
-## Extension Settings
+- This module uses Node.js streams to minimize memory usage and optimize speed, perfect for embedded devices and "the internet of things".
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- These audio files are fully compatible with both the Google Speech to Text API (v2) 
 
-For example:
+### Installation
 
-This extension contributes the following settings:
+- npm install node-record-lpcm16
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+### Dependencies
 
-## Known Issues
+- This module requires you to install SoX and it must be available in your $PATH.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+    - For Mac OS
+      brew install sox
 
-## Release Notes
+   - For most linux disto's
+     sudo apt-get install sox libsox-fmt-all
 
-Users appreciate release notes as you update your extension.
+### Debugging
+- Debug logging is implemented with visionmedia/debug
 
-### 1.0.0
+- DEBUG=record node examples/file.js
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
 
 ### For more information
 
