@@ -63,6 +63,71 @@ function activate(context) {
       vscode.window.showInformationMessage("Hello World from ATTMN!");
       //--------------------------------------------------------------------------------------------------------------------------
 
+      const config = {
+
+        projectId: "fifth-medley-312204",,
+        keyFilename:
+       "C:\\Users\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
+
+
+       
+      };
+      const client = new speech.SpeechClient(config);
+
+      const encoding = "LINEAR16";
+      const sampleRateHertz = 16000;
+      const languageCode = "en-US";
+
+      const request = {
+        config: {
+          encoding: encoding,
+          sampleRateHertz: sampleRateHertz,
+          languageCode: languageCode,
+        },
+        interimResults: false, // If you want interim results, set this to true
+      };
+
+      //function that takes in the trancsript
+
+      // async function voiceCommand(value) {
+      //   console.log(value);
+
+      //   if (value === "scroll down") {
+      //     vscode.commands.executeCommand("editorScroll", {
+      //       to: "down",
+      //       by: "line",
+      //       value: 50,
+      //       revealCursor: true,
+      //     });
+      //     console.log("After editorScroll");
+      //   }
+      //   if (value === "move tab") {
+      //     await vscode.commands.executeCommand("moveActiveEditor", {
+      //       by: "tab",
+      //     });
+      //   }
+      //   if (value === "insert function") {
+      //     const editor = vscode.window.activeTextEditor;
+      //     editor.insertSnippet(
+      //       new vscode.SnippetString("console.log('$1')", "$2")
+      //       // new vscode.Position(123, 0)
+      //     );
+      //   }
+      // }
+
+      // Create a recognize stream
+      const recognizeStream = client
+        .streamingRecognize(request)
+        .on("error", console.error)
+        .on("data", (data) =>
+          process.stdout.write(
+            data.results[0] && data.results[0].alternatives[0]
+              ? breakDown(data.results[0].alternatives[0].transcript) // Calls the BREAKDOWN fucntion on handler.js
+              : "\n\nReached transcription time limit, press Ctrl+C\n"
+          )
+        );
+
+
       // Start recording and send the microphone input to the Speech API.
       // Ensure SoX is installed, see https://www.npmjs.com/package/node-record-lpcm16#dependencies
       const recording = recorder.record({
