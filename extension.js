@@ -30,10 +30,12 @@ function activate(context) {
       //--------------------------------------------------------------------------------------------------------------------------
       const config = {
 
-        projectId: "crypto-canyon-3123`01",
+        projectId: "fifth-medley-312204",,
         keyFilename:
-        "/Users/taylorthornton/Desktop/GoogleKeys/crypto-canyon-312301-06fb9859f4e8.json",
-        
+       "C:\\Users\\12064\\Documents\\Project-ATTMN\\fifth-medley-312204-9ce88867a9ba.json",
+
+
+       
       };
       const client = new speech.SpeechClient(config);
 
