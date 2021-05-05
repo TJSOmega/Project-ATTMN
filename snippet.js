@@ -7,8 +7,7 @@ const snippets = {
   forEach: "${1:array}.forEach(${2:currentItem} => {\n\t${0}\n});",
   require: "require('${1:package}');",
   async: "async const ${1:name} = (${2:params}) => {\n\t${3}\n}",
-  namedFunction: "const ${1:name} = (${2:params}) => {\n\t${3}\n}"
-
+  namedFunction: "const ${1:name} = (${2:params}) => {\n\t${3}\n}",
 };
 
 module.exports = snippets;
