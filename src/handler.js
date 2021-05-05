@@ -4,7 +4,11 @@ const vscode = require("vscode");
 const arrayGenerator = require('./arrayGenerator.js')
 const textInsert = require('./textInsert.js')
 
+// Bring in snippets
+const snippets = require("../snippet.js");
+
 const breakDown = (value) => {
+
   console.log(value)
   let keywords = value.toLowerCase()
   console.log(keywords)
@@ -39,6 +43,14 @@ const breakDown = (value) => {
         new vscode.SnippetString(arrayGenerator(keywords))
       )
     }
+  vscode.window.showInformationMessage(`You said: ${value}`);
+  const editor = vscode.window.activeTextEditor;
+  if (value.includes("insert")) {
+    editor.insertSnippet(
+      new vscode.SnippetString(snippets.forloop.join(" ")) /// create snippet to be displayed on editor.
+      // new vscode.Position(105, 0)
+    );
+>
   }
 }
 
