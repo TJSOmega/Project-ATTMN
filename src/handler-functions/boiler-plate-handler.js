@@ -1,6 +1,6 @@
 "use strict";
 const vscode = require("vscode");
-const boilerPlate = require("../../resources/node-express-boilderplate.js");
+const boilerPlate = require("../../snippets/node-express-boilderplate.js");
 const breakDown = require("../handler-functions/break-down-words.js");
 
 const boilerPlateHandler = (value) => {
