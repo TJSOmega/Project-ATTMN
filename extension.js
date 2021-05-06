@@ -4,47 +4,15 @@ const vscode = require("vscode");
 const recorder = require("node-record-lpcm16");
 const speech = require("@google-cloud/speech");
 
-const { breakDown } = require("./src/handler.js");
+const mainHandler = require("./src/main-handler.js");
+
+const snippets = require("./resources/snippet.js");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
 /**
  * @param {vscode.ExtensionContext} context
  */
-
-//------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
-const config = {
-  projectId: "coral-atom-312202",
-  keyFilename:
-    "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
-  timeout: 5,
-};
-const client = new speech.SpeechClient(config);
-
-const encoding = "LINEAR16";
-const sampleRateHertz = 16000;
-const languageCode = "en-US";
-
-const request = {
-  config: {
-    encoding: encoding,
-    sampleRateHertz: sampleRateHertz,
-    languageCode: languageCode,
-  },
-  interimResults: false, // If you want interim results, set this to true
-};
-
-// Create a recognize stream
-const recognizeStream = client
-  .streamingRecognize(request)
-  .on("error", console.error)
-  .on("data", (data) =>
-    process.stdout.write(
-      data.results[0] && data.results[0].alternatives[0]
-        ? breakDown(data.results[0].alternatives[0].transcript) //------ Calls the BREAKDOWN fucntion on handler.js -----------
-        : "\n\nReached transcription time limit, press Ctrl+C\n"
-    )
-  );
 
 function activate(context) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
@@ -62,6 +30,48 @@ function activate(context) {
       // Display a message box to the user
       vscode.window.showInformationMessage("Hello World from ATTMN!");
 
+      // vscode.window.activeTextEditor.insertSnippet(
+      //   new vscode.SnippetString(snippets["destructureobject"])
+      // );
+      //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
+      const config = {
+        projectId: "coral-atom-312202",
+        keyFilename:
+          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
+        timeout: 5,
+      };
+      const client = new speech.SpeechClient(config);
+
+      const encoding = "LINEAR16";
+      const sampleRateHertz = 16000;
+      const languageCode = "en-US";
+
+      const request = {
+        config: {
+          encoding: encoding,
+          sampleRateHertz: sampleRateHertz,
+          languageCode: languageCode,
+        },
+        interimResults: false, // If you want interim results, set this to true
+      };
+
+      // Create a recognize stream
+      const recognizeStream = client
+        .streamingRecognize(request)
+        .on("error", console.error)
+        .on("data", (data) =>
+          data.results[0].isFinal && data.results[0].alternatives[0]
+            ? middleHandler(data.results[0].alternatives[0].transcript)
+            : console.log("Sorry could not pick-up what you said.")
+        );
+
+      // setTimeout(() => {
+      //   console.log("start of destruction");
+      //   recognizeStream.removeListener("data", breakDown);
+      //   recognizeStream.destroy();
+      //   recognizeStream = null;
+      // }, 20000);
+
       // Start recording and send the microphone input to the Speech API.
       // Ensure SoX is installed, see https://www.npmjs.com/package/node-record-lpcm16#dependencies
       const recording = recorder.record({
@@ -75,7 +85,16 @@ function activate(context) {
       });
       recording.stream().on("error", console.error).pipe(recognizeStream);
 
+      const middleHandler = (value) => {
+        mainHandler(value);
+        console.log("start of destruction");
+        recognizeStream.removeListener("data", middleHandler);
+        recognizeStream.destroy();
+        recognizeStream = null;
+      };
+
       console.log("Listening, press Ctrl+C to stop.");
+      vscode.window.showInformationMessage("Now listening...");
 
       //--------------------------------------------------------------------------------------------------------------------------
     }
