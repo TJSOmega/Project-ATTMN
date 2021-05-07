@@ -11,19 +11,23 @@ const mainHandler = (value) => {
   let keywords = value.toLowerCase();
   const editor = vscode.window.activeTextEditor;
   //-------------- *** INSERT Keyword*** ---------------------
-  if (
+  if
+    (
     keywords.includes("insert") ||
     keywords.includes("answer") ||
     keywords.includes("enter")
   ) {
-    insertHandler(keywords); // Handle's inserting snippets to text editor
-  }
-
-  if (keywords.includes("create")) {
-    if (keywords.includes("array")) {
-      editor.insertSnippet(new vscode.SnippetString(arrayGenerator(keywords)));
+    if (
+      keywords.includes('item array') ||
+      keywords.includes('array with')
+    ) {
+      editor.insertSnippet(new vscode.SnippetString(arrayGenerator(keywords)))
+     // Handle's inserting snippets to text editor
+     
+      } else {
+      boilerPlateHandler(keywords);
+      insertHandler(keywords);
     }
-    boilerPlateHandler(keywords);
   }
 };
 

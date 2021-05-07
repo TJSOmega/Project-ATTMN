@@ -27,7 +27,10 @@ const insertHandler = (value) => {
       new vscode.Position(parseInt(matches[0] - 1), 0)
     );
   } else {
-    editor.insertSnippet(new vscode.SnippetString(value));
+    let keywords = value.split(" ");
+    keywords.shift();
+    let newWords = keywords.join(" ");
+    editor.insertSnippet(new vscode.SnippetString(newWords));
   }
 };
 
