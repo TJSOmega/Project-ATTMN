@@ -86,11 +86,15 @@ function activate(context) {
       recording.stream().on("error", console.error).pipe(recognizeStream);
 
       const middleHandler = (value) => {
+        console.log(value);
         mainHandler(value);
+
+        // setTimeout(() => {
         console.log("start of destruction");
         recognizeStream.removeListener("data", middleHandler);
         recognizeStream.destroy();
         recognizeStream = null;
+        // }, 20000);
       };
 
       console.log("Listening, press Ctrl+C to stop.");
