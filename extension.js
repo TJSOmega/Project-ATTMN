@@ -6,7 +6,6 @@ const speech = require("@google-cloud/speech");
 
 const mainHandler = require("./src/main-handler.js");
 
-const snippets = require("./resources/snippet.js");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -17,30 +16,26 @@ const snippets = require("./resources/snippet.js");
 function activate(context) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "ATTMN" is now active!');
+  console.log('Congratulations, your extension "Atomic" is now active!');
 
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
-    "ATTMN.helloWorld",
+    "Atomic.startRecord",
     function () {
       // The code you place here will be executed every time your command is executed
 
       // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from ATTMN!");
-
-      // vscode.window.activeTextEditor.insertSnippet(
-      //   new vscode.SnippetString(snippets["destructureobject"])
-      // );
+      vscode.window.showInformationMessage("Hello World from Atomic!");
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
-      const config = {
-        projectId: "coral-atom-312202",
-        keyFilename:
-          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
-        timeout: 5,
-      };
-      const client = new speech.SpeechClient(config);
+      // const config = {
+      //   projectId: "coral-atom-312202",
+      //   keyFilename:
+      //     "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
+      //   timeout: 5,
+      // };
+      const client = new speech.SpeechClient();
 
       const encoding = "LINEAR16";
       const sampleRateHertz = 16000;

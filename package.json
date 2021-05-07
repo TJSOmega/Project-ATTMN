@@ -1,6 +1,6 @@
 {
-  "name": "attmn",
-  "displayName": "ATTMN",
+  "name": "atomic",
+  "displayName": "Atomic",
   "description": "Voice Commanded Snippets",
   "version": "0.0.1",
   "engines": {
@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:ATTMN.helloWorld"
+    "onCommand:Atomic.startRecord"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "ATTMN.helloWorld",
-        "title": "ATTMN"
+        "command": "Atomic.startRecord",
+        "title": "Atomic"
       }
     ]
   },

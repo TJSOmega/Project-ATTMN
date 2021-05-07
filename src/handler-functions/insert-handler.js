@@ -26,7 +26,7 @@ const insertHandler = (value) => {
       new vscode.SnippetString(snippets[snipword]), /// create snippet to be displayed on editor.
       new vscode.Position(parseInt(matches[0] - 1), 0)
     );
-  } else if (value.includes(`${value}`)) {
+  } else {
     editor.insertSnippet(new vscode.SnippetString(value));
   }
 };
