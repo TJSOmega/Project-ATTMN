@@ -9,6 +9,11 @@ const snippets = {
   require: "const ${1:packageName} = require('${1:package}');$0",
   destructureobject: "const {${2:propertyName}} = ${1:objectToDestruct};",
   destructurearray: "const [${2:propertyName}] = ${1:arrayToDestruct};",
+ functionstatement: "function ${1:name}(${2:params}) {\n\t${0}",
+ ifstatement:"if(${1:condition}) {\n\t${0}\n}",
+			
+
+  
 };
 
 module.exports = snippets;

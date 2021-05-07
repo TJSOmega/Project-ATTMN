@@ -1,5 +1,6 @@
 const assert = require('assert');
-
+const supertest = require('supertest');
+const extension = require('../../extension.js');
 // You can import and use all API from the 'vscode' module
 // as well as import your extension to test it
 const vscode = require('vscode');
