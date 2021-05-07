@@ -35,9 +35,11 @@ function activate(context) {
       // );
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
+
         projectId: "project-attmn",
         keyFilename:
           "E:\\project-attmn-a3bb72e96e39.json",
+
         timeout: 5,
       };
       const client = new speech.SpeechClient(config);
@@ -108,7 +110,7 @@ function activate(context) {
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
   activate,
