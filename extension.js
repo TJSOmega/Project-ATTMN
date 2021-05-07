@@ -35,9 +35,11 @@ function activate(context) {
       // );
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
-        projectId: "gentle-oxygen-138123",
+
+        projectId: "project-attmn",
         keyFilename:
-          "/Users/rubenarthur/Desktop/talk.json",
+          "E:\\project-attmn-a3bb72e96e39.json",
+
         timeout: 5,
       };
       const client = new speech.SpeechClient(config);
