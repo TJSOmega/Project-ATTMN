@@ -35,9 +35,9 @@ function activate(context) {
       // );
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
-        projectId: "coral-atom-312202",
+        projectId: "gentle-oxygen-138123",
         keyFilename:
-          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
+          "/Users/rubenarthur/Desktop/talk.json",
         timeout: 5,
       };
       const client = new speech.SpeechClient(config);
@@ -108,7 +108,7 @@ function activate(context) {
 }
 
 // this method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
   activate,
