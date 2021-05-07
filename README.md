@@ -53,7 +53,10 @@ A built-in microphone device is required to run this extension.
 - destructure array
 
 ## Creating Snippets - Contribute to our Library!
+
 - 
+- 3.) Go to the (extension.js) the config object will need your google Id and json file with credentials.
+- 3.) Navigate to the snippets directory.  Create a file within the snippets directory that performs the function of your choosing.  
 
 ## Debugging
 - Debug logging is implemented with visionmedia/debug
