@@ -22,8 +22,6 @@
     ]
   },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
     "test": "node ./test/runTest.js"
   },
   "devDependencies": {
