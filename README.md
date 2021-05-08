@@ -34,7 +34,9 @@ A built-in microphone device is required to run this extension.
 
 - Create a service account key. This downloads a JSON key file to your computer
 
-[For more information directly from Google click here](https://cloud.google.com/speech-to-text/docs/libraries#windows)
+  [For more information directly from Google click here](https://cloud.google.com/speech-to-text/docs/libraries#windows)
+
+  - Find the extension.js file within the repo, within the (extension.js) the config object will need your google credentials updated to match the account you created above.
 
 ## Installation & Dependencies
 
@@ -63,7 +65,14 @@ A built-in microphone device is required to run this extension.
 
 ## Creating Snippets - Contribute to our Library!
 
--
+## <<<<<<< HEAD
+
+=======
+
+- 1.) Go into the snippets directory and create a file containing the function that you would like to be a snippet. The function will need to be exported.
+- 2.) Within your src folder open snippet-list.js and add your snippet in order to be recognized and in order to have it called via the voice activation.
+- 3.) The breakdown handler will break down your voice entry and pass it to the insert handler which will insert your snippet into the text editor.
+  > > > > > > > 1327fd22535e63a299e1d828b1cfb7bb62b0c8bf
 
 ## Debugging
 
