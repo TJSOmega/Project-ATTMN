@@ -36,10 +36,9 @@ function activate(context) {
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
 
-        projectId: "project-attmn",
+        projectId: "fifth-medley-312204",
         keyFilename:
-          "E:\\project-attmn-a3bb72e96e39.json",
-
+        "C:\\Users\\12064\\Desktop\\fifth-medley-312204-3de415f7b035.json",
         timeout: 5,
       };
       const client = new speech.SpeechClient(config);
