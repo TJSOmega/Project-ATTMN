@@ -29,13 +29,13 @@ function activate(context) {
       // Display a message box to the user
       vscode.window.showInformationMessage("Hello World from Atomic!");
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
-      // const config = {
-      //   projectId: "coral-atom-312202",
-      //   keyFilename:
-      //     "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
-      //   timeout: 5,
-      // };
-      const client = new speech.SpeechClient();
+      const config = {
+        projectId: "coral-atom-312202",
+        keyFilename:
+          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
+        timeout: 5,
+      };
+      const client = new speech.SpeechClient(config);
 
       const encoding = "LINEAR16";
       const sampleRateHertz = 16000;
@@ -59,14 +59,6 @@ function activate(context) {
             ? middleHandler(data.results[0].alternatives[0].transcript)
             : console.log("Sorry could not pick-up what you said.")
         );
-
-      // setTimeout(() => {
-      //   console.log("start of destruction");
-      //   recognizeStream.removeListener("data", breakDown);
-      //   recognizeStream.destroy();
-      //   recognizeStream = null;
-      // }, 20000);
-
       // Start recording and send the microphone input to the Speech API.
       // Ensure SoX is installed, see https://www.npmjs.com/package/node-record-lpcm16#dependencies
       const recording = recorder.record({
@@ -83,13 +75,10 @@ function activate(context) {
       const middleHandler = (value) => {
         console.log(value);
         mainHandler(value);
-
-        // setTimeout(() => {
         console.log("start of destruction");
         recognizeStream.removeListener("data", middleHandler);
         recognizeStream.destroy();
         recognizeStream = null;
-        // }, 20000);
       };
 
       console.log("Listening, press Ctrl+C to stop.");
