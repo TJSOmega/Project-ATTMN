@@ -6,7 +6,6 @@ const speech = require("@google-cloud/speech");
 
 const mainHandler = require("./src/main-handler.js");
 
-const snippets = require("./resources/snippet.js");
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -17,28 +16,23 @@ const snippets = require("./resources/snippet.js");
 function activate(context) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "ATTMN" is now active!');
+  console.log('Congratulations, your extension "Atomic" is now active!');
 
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
-    "ATTMN.helloWorld",
+    "Atomic.startRecord",
     function () {
       // The code you place here will be executed every time your command is executed
 
       // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from ATTMN!");
-
-      // vscode.window.activeTextEditor.insertSnippet(
-      //   new vscode.SnippetString(snippets["destructureobject"])
-      // );
+      vscode.window.showInformationMessage("Hello World from Atomic!");
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
-
-        projectId: "fifth-medley-312204",
+        projectId: "coral-atom-312202",
         keyFilename:
-        "C:\\Users\\12064\\Desktop\\fifth-medley-312204-3de415f7b035.json",
+          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
         timeout: 5,
       };
       const client = new speech.SpeechClient(config);
@@ -65,14 +59,6 @@ function activate(context) {
             ? middleHandler(data.results[0].alternatives[0].transcript)
             : console.log("Sorry could not pick-up what you said.")
         );
-
-      // setTimeout(() => {
-      //   console.log("start of destruction");
-      //   recognizeStream.removeListener("data", breakDown);
-      //   recognizeStream.destroy();
-      //   recognizeStream = null;
-      // }, 20000);
-
       // Start recording and send the microphone input to the Speech API.
       // Ensure SoX is installed, see https://www.npmjs.com/package/node-record-lpcm16#dependencies
       const recording = recorder.record({
@@ -89,13 +75,10 @@ function activate(context) {
       const middleHandler = (value) => {
         console.log(value);
         mainHandler(value);
-
-        // setTimeout(() => {
         console.log("start of destruction");
         recognizeStream.removeListener("data", middleHandler);
         recognizeStream.destroy();
         recognizeStream = null;
-        // }, 20000);
       };
 
       console.log("Listening, press Ctrl+C to stop.");
@@ -109,7 +92,7 @@ function activate(context) {
 }
 
 // this method is called when your extension is deactivated
-function deactivate() { }
+function deactivate() {}
 
 module.exports = {
   activate,
