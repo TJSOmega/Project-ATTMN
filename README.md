@@ -63,16 +63,11 @@ A built-in microphone device is required to run this extension.
 - destructure object
 - destructure array
 
-## Creating Snippets - Contribute to our Library!
-
-## <<<<<<< HEAD
-
-=======
+## Creating Snippets - Contribute to our Library
 
 - 1.) Go into the snippets directory and create a file containing the function that you would like to be a snippet. The function will need to be exported.
 - 2.) Within your src folder open snippet-list.js and add your snippet in order to be recognized and in order to have it called via the voice activation.
-- 3.) The breakdown handler will break down your voice entry and pass it to the insert handler which will insert your snippet into the text editor.
-  > > > > > > > 1327fd22535e63a299e1d828b1cfb7bb62b0c8bf
+- 3.) The main-handler will break down your voice entry and pass it to the insert handler which will insert your snippet into the text editor.
 
 ## Debugging
 
