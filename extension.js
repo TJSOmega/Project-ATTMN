@@ -33,7 +33,6 @@ function activate(context) {
         projectId: "coral-atom-312202",
         keyFilename:
           "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
-        timeout: 5,
       };
       const client = new speech.SpeechClient(config);
 
