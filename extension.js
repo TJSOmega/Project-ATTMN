@@ -30,9 +30,9 @@ function activate(context) {
       vscode.window.showInformationMessage("Hello World from Atomic!");
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
-        projectId: "coral-atom-312202",
+        projectId: "project-attmn",
         keyFilename:
-          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
+          "E:\\project-attmn-a3bb72e96e39.json",
       };
       const client = new speech.SpeechClient(config);
 

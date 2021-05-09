@@ -1,17 +1,19 @@
 'use strict';
 
-describe("Insert Function tests", () => {
-  it("should return a valid string", () => {
+const insertHandler = require('../src/handler-functions/insert-handler.js')
+
+describe("Insert Handler tests", () => {
+  it("should insert the correct snippet", () => {
     let expected = "foreach";
     let val = "insert for each";
-    expect(breakDown(val)).toEqual("foreach");
+    expect(insertHandler(val)).toEqual("foreach");
   });
 
-  it("should return valid string", () => {
-    let expected = "require"; 
-    let val = "insert require";
-    expect(breakDown(val)).toEqual("require");
+  it("should create a line of text at a specific line", () => {
+    let val = "insert text at line 20";
+    insertHandler(val).expect()
   });
+
 
 });
 

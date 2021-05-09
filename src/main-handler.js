@@ -7,8 +7,21 @@ const insertHandler = require("./handler-functions/insert-handler.js");
 const scrollHandler = require("./handler-functions/scroll-handler.js");
 
 const mainHandler = (value) => {
-  vscode.window.showInformationMessage(`You said: ${value}`);
-  let keywords = value.toLowerCase();
+  let check = value.split(' ')
+  let keywords = value.toLowerCase()
+  console.log(check)
+  if (
+    check[0] === "insert" ||
+    check[0] === "answer" ||
+    check[0] === "enter"
+    ) {
+    vscode.window.showInformationMessage(`You said: ${value}`);
+    // console.log(keywords)
+  } else {
+    vscode.window.showInformationMessage(`Please start your Statment by saying "Insert" for text, or "Scroll" for movement!`);
+    return
+  }
+
   const editor = vscode.window.activeTextEditor;
   //-------------- *** INSERT Keyword*** ---------------------
   if (
@@ -26,6 +39,9 @@ const mainHandler = (value) => {
 
   if (keywords.includes("scroll")) {
     scrollHandler(keywords);
+  }
+  else {
+    console.log('Incorrect Statement')
   }
 };
 
