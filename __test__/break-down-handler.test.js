@@ -6,7 +6,7 @@ describe("Break Down Function tests", () => {
   it("should return a valid string", () => {
     let expected = "foreach";
     let val = "insert for each";
-    expect(breakDown(val)).toEqual("foreach");
+    expect(breakDown(val)).toEqual(expected);
   });
 
   it("should return valid string", () => {

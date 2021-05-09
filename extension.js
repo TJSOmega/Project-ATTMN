@@ -25,9 +25,6 @@ function activate(context) {
     "Atomic.startRecord",
     function () {
       // The code you place here will be executed every time your command is executed
-
-      // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from Atomic!");
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
       const config = {
         projectId: "coral-atom-312202",
@@ -72,9 +69,7 @@ function activate(context) {
       recording.stream().on("error", console.error).pipe(recognizeStream);
 
       const middleHandler = (value) => {
-        console.log(value);
         mainHandler(value);
-        console.log("start of destruction");
         recognizeStream.removeListener("data", middleHandler);
         recognizeStream.destroy();
         recognizeStream = null;

@@ -1,7 +1,7 @@
 {
   "name": "atomic",
   "displayName": "Atomic",
-  "description": "Voice Commanded Snippets",
+  "description": "Voice Commanded JavaScript Snippets",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.55.0"
