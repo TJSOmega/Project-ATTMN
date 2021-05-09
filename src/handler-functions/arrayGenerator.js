@@ -1,7 +1,7 @@
 "use strict";
 
 function arrayGenerator(data) {
-  let numCheck = /^[0-9]+$/;
+  const numCheck = /^[0-9]+$/;
   let array = data.split(" ");
   let number = 0;
 
@@ -25,7 +25,7 @@ function arrayGenerator(data) {
       }
       console.log(newArray);
       for (let m = 0; m < newArray.length; m++) {
-        string += ` ${newArray[m]},`;
+        string += ` '${newArray[m]}',`;
       }
       let newString = string.slice(0, string.length - 1);
       console.log("WITH LOOP", newString);
@@ -35,11 +35,16 @@ function arrayGenerator(data) {
   }
   let string = "let ${0:arrayName} = [";
   for (let i = 0; i < number; i++) {
-    string += ` $\{${i + 1}:item},`;
+    string += ` '$\{${i + 1}:item}',`;
   }
   console.log(string);
   let newString = string.slice(0, string.length - 1);
-  console.log("BLANK LOOP", newString);
+  // for(let i = 0; i < newString.length; i++) {
+  //   if(newString[i].match(numCheck)) {
+  //     newString[i].parseInt()
+  //     console.log(newString[i])
+  //   }
+  // }
   newString += "]";
   return newString;
 }

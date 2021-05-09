@@ -13,7 +13,8 @@ const mainHandler = (value) => {
   if (
     check[0] === "insert" ||
     check[0] === "answer" ||
-    check[0] === "enter"
+    check[0] === "enter"  ||
+    check[0] === "scroll"
     ) {
     vscode.window.showInformationMessage(`You said: ${value}`);
     // console.log(keywords)

@@ -12,6 +12,12 @@ const snippets = [
   "require",
   "destructureobject",
   "destructurearray",
+  "expressserver",
+  "expressget",
+  "expresspost",
+  "expressput",
+  "ifstatement",
+  
 ];
 
 module.exports = snippets;
