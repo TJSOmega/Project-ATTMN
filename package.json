@@ -6,6 +6,7 @@
   "engines": {
     "vscode": "^1.55.0"
   },
+  "publisher": "ATTMN",
   "categories": [
     "Other"
   ],
