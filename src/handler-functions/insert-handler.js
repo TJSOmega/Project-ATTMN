@@ -4,8 +4,9 @@ const vscode = require("vscode");
 const breakDown = require("./break-down-words.js");
 
 const numCheck = /\d/;
-let currentSnip;
+
 const insertHandler = (value) => {
+  let currentSnip = null;
   const editor = vscode.window.activeTextEditor;
   let snipword = breakDown(value);
 

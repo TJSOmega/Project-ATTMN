@@ -1,7 +1,5 @@
 "use strict";
 
-const { ifstatement, functionstatement } = require("../snippets/snippet");
-
 // Add Snippet to list after creating a snippet file on the snippets folder.
 
 const snippets = [
@@ -16,6 +14,10 @@ const snippets = [
   "destructurearray",
   "ifstatement",
   "functionstatement,",
+  "expressserver",
+  "expressput",
+  "expresspost",
+  "expressget",
 ];
 
 module.exports = snippets;

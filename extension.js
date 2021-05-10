@@ -26,12 +26,12 @@ function activate(context) {
     function () {
       // The code you place here will be executed every time your command is executed
       //------------------- CONFIG FOR GOOGLE CLOUD API CREDENTIALS ---------------------------------------
-      const config = {
-        projectId: "coral-atom-312202",
-        keyFilename:
-          "C:\\Users\\markg\\Desktop\\GoogleKeys\\coral-atom-312202-7140d85b5afb.json",
-      };
-      const client = new speech.SpeechClient(config);
+      // const config = {
+      //   projectId: "coral-atom-312202",
+      //   keyFilename:
+      //     "FILEPATH",
+      // };
+      const client = new speech.SpeechClient();
 
       const encoding = "LINEAR16";
       const sampleRateHertz = 16000;
