@@ -8,6 +8,7 @@ let currentSnip;
 const insertHandler = (value) => {
   const editor = vscode.window.activeTextEditor;
   let snipword = breakDown(value);
+  console.log(snipword);
 
   if (snipword !== null) {
     currentSnip = require(`../../snippets/${snipword}.js`); // requiring each individual snippet file.
