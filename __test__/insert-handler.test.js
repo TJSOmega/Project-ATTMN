@@ -1,12 +1,10 @@
-"use strict";
+'use strict';
 
-const breakDown = require("../src/handler-functions/break-down-words.js");
-
-describe("Break Down Function tests", () => {
+describe("Insert Function tests", () => {
   it("should return a valid string", () => {
     let expected = "foreach";
     let val = "insert for each";
-    expect(breakDown(val)).toEqual(expected);
+    expect(breakDown(val)).toEqual("foreach");
   });
 
   it("should return valid string", () => {
@@ -16,3 +14,16 @@ describe("Break Down Function tests", () => {
   });
 
 });
+
+
+
+//foreach
+//forof
+//forin
+//anonymousfunction
+//arrowfunction
+//require
+//destructure object
+//destructure array
+//function statement
+//if statement
