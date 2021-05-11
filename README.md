@@ -1,6 +1,8 @@
-# ATTMN README
+# ATOMIC
 
 This project addresses the problem of writing necessary, but repetitive, code snippets.
+
+## Please Read Instructions to properly set-up
 
 ## Features
 
@@ -10,7 +12,27 @@ This project addresses the problem of writing necessary, but repetitive, code sn
 
 ## Requirements
 
-A built-in microphone device is required to run this extension.
+A built-in default microphone device is required to run this extension.
+
+### Install SoX (Important!)
+
+In order for the extension to work you need to install SoX which is a voice recorer used in the npm package `node-record-lpcm-16`
+
+SoX HomePage: [https://www.npmjs.com/package/node-record-lpcm16](https://www.npmjs.com/package/node-record-lpcm16)
+
+**For Mac OS**
+
+`brew install sox`
+
+**For most Linux disto's**
+
+`sudo apt-get install sox libsox-fmt-all`
+
+**For Windows**
+
+**Working version for Windows is 14.4.1** . You can download the [binaries](https://sourceforge.net/projects/sox/files/sox/14.4.1/) or use [chocolately](https://chocolatey.org/) to install the package
+
+`choco install sox.portable`
 
 ### node-record-lpcm-16
 
@@ -20,23 +42,25 @@ A built-in microphone device is required to run this extension.
 
 - These audio files are fully compatible with both the Google Speech to Text API (v2)
 
+- GitHub link: [https://github.com/gillesdemey/node-record-lpcm16](https://github.com/gillesdemey/node-record-lpcm16)
+
+- NPM package link: [https://www.npmjs.com/package/node-record-lpcm16](https://www.npmjs.com/package/node-record-lpcm16)
+
 ### @google-cloud/speech
 
 - Create google cloud account to access Cloud Client Libraries
 
-- In your terminal run:
-  `npm install --save @google-cloud/speech`
-
 - Set up authentication by creating service account
 
-  - Select a project
-  - Select the 'Owner' role field
+  - [Follow These Steps to Set Up Authentication](https://cloud.google.com/docs/authentication/production)
 
 - Create a service account key. This downloads a JSON key file to your computer
 
-  [For more information directly from Google click here](https://cloud.google.com/speech-to-text/docs/libraries#windows)
-
-  - Find the extension.js file within the repo, within the (extension.js) the config object will need your google credentials updated to match the account you created above.
+- Once you have your JSON Key File Downloaded. Make sure the you set up your system's enviromental variable
+  - For Windows Users here's how you set a system enviromental variable: [Link](https://www.architectryan.com/2018/08/31/how-to-change-environment-variables-on-windows-10/)
+  - For Mac Users: [Link](https://phoenixnap.com/kb/set-environment-variable-mac)
+  - Make sure your enviromental variable is `GOOGLE_APPLICATION_CREDENTIALS` = `KEYPATH`
+  - Change `KEYPATH` to the path to your JSON key file
 
 ## Installation & Dependencies
 
@@ -68,16 +92,3 @@ A built-in microphone device is required to run this extension.
 - 1.) Go into the snippets directory and create a file containing the function that you would like to be a snippet. The function will need to be exported.
 - 2.) Within your src folder open snippet-list.js and add your snippet in order to be recognized and in order to have it called via the voice activation.
 - 3.) The main-handler will break down your voice entry and pass it to the insert handler which will insert your snippet into the text editor.
-
-## Debugging
-
-- Debug logging is implemented with visionmedia/debug
-
-- DEBUG=record node examples/file.js
-
-### For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
