@@ -62,6 +62,30 @@ SoX HomePage: [https://www.npmjs.com/package/node-record-lpcm16](https://www.npm
   - Make sure your enviromental variable is `GOOGLE_APPLICATION_CREDENTIALS` = `KEYPATH`
   - Change `KEYPATH` to the path to your JSON key file
 
+## How to use the Atomic extension
+
+- Search for Atomic in the VSCode extension tab and then install.
+- Go to VSCodes command palette and select Atomic and it will immediately start listening for a command.
+- Say "Insert" and then one of the following snippets
+  * for each
+  * for of
+  * for in
+  * anonymous function
+  * arrow function
+  * require
+  * destructure object
+  * destructure array
+  * expressget
+  * expresspost
+  * expressserver
+  * function statement
+  * if statement
+
+- Say "scroll" and then
+  * To the bottom
+  * To the top
+
+
 ## Installation & Dependencies
 
 - Clone this repo
@@ -92,3 +116,5 @@ SoX HomePage: [https://www.npmjs.com/package/node-record-lpcm16](https://www.npm
 - 1.) Go into the snippets directory and create a file containing the function that you would like to be a snippet. The function will need to be exported.
 - 2.) Within your src folder open snippet-list.js and add your snippet in order to be recognized and in order to have it called via the voice activation.
 - 3.) The main-handler will break down your voice entry and pass it to the insert handler which will insert your snippet into the text editor.
+
+
